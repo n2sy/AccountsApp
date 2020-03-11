@@ -1,0 +1,27 @@
+<div class="container">
+<form #f="ngForm">
+  <div class="form-group" ngModelGroup #idendity="ngModelGroup" name="idendity">
+  <label>Prénom</label>
+  <input ngModel required type="text" class="form-control" name="prenom">
+  <label>Nom</label>
+  <input ngModel required type="text" class="form-control" name="name">
+</div>
+  <span class="help-block" *ngIf="idendity.invalid && idendity.touched">Nom et Prenom obligatoire</span>
+  <hr>
+  <label>Login</label>
+  <input ngModel #login="ngModel" required type="text" class="form-control" name="login">
+  <div class="alert alert-danger" *ngIf="login.invalid && login.touched">Login is required</div>
+
+  <label>Password</label>
+  <input ngModel type="text" class="form-control" name="pwd">
+  <label>Gender</label>
+  <select [ngModel]="DefaultGender" name="gender" class="form-control">
+    <option value="male">Male</option>
+    <option value="female">Female</option>
+  </select>
+  <br>
+  <button class="btn btn-primary" (click)="ShowFormulaire(f)">
+    Submit</button>
+</form>
+</div>
+
